@@ -18,7 +18,7 @@ other = "Logros"
 other = "Contacto"
 
 [search_placeholder]
-other = "Ctrl + k para buscar..."
+other = "Buscar..."
 
 # Sections
 [about]
