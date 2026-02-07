@@ -61,7 +61,7 @@
       // Set the correct path to index.json for the search functionality
       window.searchIndexURL = {{ "index.json" | relURL | jsonify | safeJS }};
     </script>
-    <script src="{{ (printf "%sjs/search.js" .Site.Params.staticPath) | relURL }}"></script>
+    <script src="{{ (printf "%sjs/search.js" (.Site.Params.staticPath | default "")) | relURL }}"></script>
 {{ end }}
 
 
@@ -97,7 +97,7 @@
 {{ end }}
 
 {{ if (.Site.Params.contact.formspree.enable | default false) }}
-<script src="{{ (printf "%sjs/contact.js" .Site.Params.staticPath) | relURL }}"></script>
+<script src="{{ (printf "%sjs/contact.js" (.Site.Params.staticPath | default "")) | relURL }}"></script>
 {{ end }}
 
 {{ if (.Site.Params.customScripts | default false) }}
