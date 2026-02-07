@@ -57,6 +57,10 @@
 {{- end }}
 
 {{ if not (.Site.Params.navbar.disableSearch | default false) }}
+    <script>
+      // Set the correct path to index.json for the search functionality
+      window.searchIndexURL = {{ "index.json" | relURL | jsonify | safeJS }};
+    </script>
     <script src="{{ (printf "%sjs/search.js" .Site.Params.staticPath) | relURL }}"></script>
 {{ end }}
 

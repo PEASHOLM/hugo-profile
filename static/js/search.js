@@ -49,14 +49,8 @@ async function performSearch(evt) {
       searchButtonPosition.left + "px";
 
     try {
-      // Get the base URL path from the current location
-      let baseUrl = window.location.pathname;
-      // If the current path doesn't end with '/', treat it as a file path and get the directory
-      if (!baseUrl.endsWith('/')) {
-        baseUrl = baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1);
-      }
-      // Remove trailing slash and add /index.json
-      let indexUrl = baseUrl.replace(/\/$/, '') + '/index.json';
+      // Use the search index URL provided by Hugo template, fallback to /index.json
+      let indexUrl = window.searchIndexURL || '/index.json';
       
       let response = await fetch(indexUrl);
       if (!response.ok) {

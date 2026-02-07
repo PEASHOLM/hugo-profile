@@ -19,5 +19,6 @@ hugo.linux
 # Temporary lock file while building
 .hugo_build.lock
 
-.prettierignoreexampleSite/themes/
+.prettierignore
+exampleSite/themes/
 *.tar.gz
