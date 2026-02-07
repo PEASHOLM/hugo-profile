@@ -60,7 +60,8 @@
             <h5>{{ .Site.Params.terms.tags | default (i18n "tags") }}</h5>
             <ul class="tags-ul list-unstyled list-inline">
               {{range .Params.tags}}
-              <li class="list-inline-item"><a href="{{`tags` | absURL}}/{{.| urlize}}"
+              {{ $tagURL := printf "tags/%s" (. | urlize) }}
+              <li class="list-inline-item"><a href="{{ $tagURL | relLangURL }}"
                 {{ if site.Params.singlePages.tags.openInNewTab | default true }}target="_blank"{{ end }}
               >{{.}}</a></li>
               {{end}}
