@@ -1,4 +1,4 @@
-{{ if .Site.IsMultiLingual }}
+{{ if hugo.IsMultilingual }}
 <li class="nav-item navbar-text dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -9,7 +9,7 @@
     </a>
     <div class="dropdown-menu shadow-lg rounded" aria-labelledby="languageDropdown">
         {{ range .Site.Home.AllTranslations }}
-        <a class="dropdown-item text-center nav-link{{ if eq . $currentPage }} active{{ end }}" 
+        <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Site.Language.Lang }} active{{ end }}" 
            href="{{ .Permalink }}" 
            title="{{ .Language.LanguageName }}">
             {{ if eq .Language.Lang "en" }}🇬🇧{{ else if eq .Language.Lang "es" }}🇪🇸{{ else if eq .Language.Lang "fr" }}🇫🇷{{ else }}🌐{{ end }}
