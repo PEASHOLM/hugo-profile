@@ -11,9 +11,23 @@ languages:
   en:
     languageName: "English"
     weight: 1
+    menu:
+      main:
+        - identifier: blog
+          name: Blog
+          title: Blog posts
+          url: /blogs
+          weight: 1
   es:
     languageName: "Español"
     weight: 2
+    menu:
+      main:
+        - identifier: blog
+          name: Blog
+          title: Publicaciones del blog
+          url: /es/blogs
+          weight: 1
     params:
       hero:
         intro: "Hola, mi nombre es"
@@ -207,6 +221,13 @@ languages:
   fr:
     languageName: "Français"
     weight: 3
+    menu:
+      main:
+        - identifier: blog
+          name: Blog
+          title: Articles de blog
+          url: /fr/blogs
+          weight: 1
     params:
       hero:
         intro: "Bonjour, je m'appelle"
@@ -425,14 +446,9 @@ markup:
 
 Menus:
   main:
-    - identifier: blog
-      name: Blog
-      title: Blog posts
-      url: /blogs
-      weight: 1
     - identifier: gallery
       name: Gallery
-      title: Blog posts
+      title: Gallery
       url: /gallery
       weight: 2
     #Dropdown menu
