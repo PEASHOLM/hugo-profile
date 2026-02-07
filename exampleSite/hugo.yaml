@@ -5,19 +5,19 @@ theme: hugo-profile
 
 # Multilingual configuration
 defaultContentLanguage: "en"
-defaultContentLanguageInSubdir: false
+defaultContentLanguageInSubdir: true
 
 languages:
   en:
     languageName: "English"
     weight: 1
-    contentDir: "content"
+    contentDir: "content/en"
     menu:
       main:
         - identifier: blog
           name: Blog
           title: Blog posts
-          url: /blogs
+          url: /en/blogs
           weight: 1
   es:
     languageName: "Español"
