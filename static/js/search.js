@@ -49,7 +49,16 @@ async function performSearch(evt) {
       searchButtonPosition.left + "px";
 
     try {
-      let response = await fetch("/index.json");
+      // Get the base URL path from the current location
+      let baseUrl = window.location.pathname;
+      // If the current path doesn't end with '/', treat it as a file path and get the directory
+      if (!baseUrl.endsWith('/')) {
+        baseUrl = baseUrl.substring(0, baseUrl.lastIndexOf('/') + 1);
+      }
+      // Remove trailing slash and add /index.json
+      let indexUrl = baseUrl.replace(/\/$/, '') + '/index.json';
+      
+      let response = await fetch(indexUrl);
       if (!response.ok) {
         throw new Error("Failed to fetch search data");
       }
