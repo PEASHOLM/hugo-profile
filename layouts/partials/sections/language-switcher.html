@@ -2,20 +2,35 @@
 <li class="nav-item navbar-text dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ with .Site.Language }}
+        {{ with .Language }}
             {{ if eq .Lang "en" }}🇬🇧{{ else if eq .Lang "es" }}🇪🇸{{ else if eq .Lang "fr" }}🇫🇷{{ else }}🌐{{ end }}
             <span class="d-none d-md-inline">{{ .LanguageName }}</span>
         {{ end }}
     </a>
     <div class="dropdown-menu shadow-lg rounded" aria-labelledby="languageDropdown">
-        {{ range .Site.Home.AllTranslations }}
-        <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Site.Language.Lang }} active{{ end }}" 
-           href="{{ .Permalink }}" 
-           title="{{ .Language.LanguageName }}">
-            {{ if eq .Language.Lang "en" }}🇬🇧{{ else if eq .Language.Lang "es" }}🇪🇸{{ else if eq .Language.Lang "fr" }}🇫🇷{{ else }}🌐{{ end }}
-            {{ .Language.LanguageName }}
-        </a>
-        {{ end }}
+        {{- /* Use page translations if available, otherwise fall back to site languages */ -}}
+        {{- $translations := .AllTranslations -}}
+        {{- if eq (len $translations) 1 -}}
+            {{- /* No translations for this page, use home page translations */ -}}
+            {{- range site.Home.AllTranslations -}}
+            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}" 
+               href="{{ .RelPermalink }}" 
+               title="{{ .Language.LanguageName }}">
+                {{ if eq .Language.Lang "en" }}🇬🇧{{ else if eq .Language.Lang "es" }}🇪🇸{{ else if eq .Language.Lang "fr" }}🇫🇷{{ else }}🌐{{ end }}
+                {{ .Language.LanguageName }}
+            </a>
+            {{- end -}}
+        {{- else -}}
+            {{- /* Page has translations, use them */ -}}
+            {{- range $translations -}}
+            <a class="dropdown-item text-center nav-link{{ if eq .Language.Lang $.Language.Lang }} active{{ end }}" 
+               href="{{ .RelPermalink }}" 
+               title="{{ .Language.LanguageName }}">
+                {{ if eq .Language.Lang "en" }}🇬🇧{{ else if eq .Language.Lang "es" }}🇪🇸{{ else if eq .Language.Lang "fr" }}🇫🇷{{ else }}🌐{{ end }}
+                {{ .Language.LanguageName }}
+            </a>
+            {{- end -}}
+        {{- end -}}
     </div>
 </li>
 {{ end }}
