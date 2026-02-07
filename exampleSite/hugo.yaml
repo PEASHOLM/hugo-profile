@@ -19,6 +19,11 @@ languages:
           title: Blog posts
           url: /en/blogs
           weight: 1
+        - identifier: gallery
+          name: Gallery
+          title: Image gallery
+          url: /en/gallery
+          weight: 2
   es:
     languageName: "Español"
     weight: 2
@@ -30,6 +35,11 @@ languages:
           title: Publicaciones del blog
           url: /es/blogs
           weight: 1
+        - identifier: gallery
+          name: Galería
+          title: Galería de imágenes
+          url: /es/gallery
+          weight: 2
     params:
       hero:
         intro: "Hola, mi nombre es"
@@ -231,6 +241,11 @@ languages:
           title: Articles de blog
           url: /fr/blogs
           weight: 1
+        - identifier: gallery
+          name: Galerie
+          title: Galerie d'images
+          url: /fr/gallery
+          weight: 2
     params:
       hero:
         intro: "Bonjour, je m'appelle"
