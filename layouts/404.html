@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "title" }}
-{{ .Site.Title }} | {{ .Site.Params.terms.pageNotFound | default (i18n "page_not_found") }}
+{{ .Site.Params.terms.pageNotFound | default (i18n "page_not_found") }} | {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
